@@ -1,4 +1,4 @@
-# My Vue Library
+# Bustion UI
 
 [![npm version](https://badge.fury.io/js/bustion-ui.svg)](https://badge.fury.io/js/bustion-ui)
 [![npm downloads](https://img.shields.io/npm/dm/bustion-ui.svg)](https://npmjs.org/bustion-ui)
