@@ -1,12 +1,15 @@
 {
   "name": "bustion-ui",
-  "private": true,
+	"description": "Headless UI kit",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "keywords": [
     "vue",
     "components",
-    "library"
+    "library",
+    "headless",
+    "ui"
   ],
   "files": [
     "dist"
