@@ -1,27 +1,30 @@
 <template>
-    <button>
-        <span :style="{'opacity': props.loading ? 0 : 1}" v-if="slots.iconLeft">
-            <slot name="iconLeft"></slot>
-        </span>
-        <span :style="{'opacity': props.loading ? 0 : 1}"><slot></slot></span>
-        <span :style="{'opacity': props.loading ? 0 : 1}" v-if="slots.iconRight">
-            <slot name="iconRight"></slot>
-        </span>
-        <slot v-if="props.loading && slots.iconSpinner" name="iconSpinner"></slot>
-    </button>
+  <button>
+    <span :style="{ opacity: loading ? 0 : 1 }" v-if="slots.iconLeft">
+      <slot name="iconLeft"></slot>
+    </span>
+    <span :style="{ opacity: loading ? 0 : 1 }"><slot></slot></span>
+    <span :style="{ opacity: loading ? 0 : 1 }" v-if="slots.iconRight">
+      <slot name="iconRight"></slot>
+    </span>
+    <slot v-if="loading && slots.iconSpinner" name="iconSpinner"></slot>
+  </button>
 </template>
 
 <script setup lang="ts">
-import { useSlots } from 'vue';
+withDefaults(
+  defineProps<{
+    loading?: boolean;
+  }>(),
+  {
+    loading: false,
+  }
+);
 
-const slots = useSlots()
-
-const props = withDefaults(
-    defineProps<{
-        loading?: boolean
-    }>(),
-    {
-        loading: false
-    }
-)
+const slots = defineSlots<{
+  iconSpinner?: (props: {}) => unknown;
+  default?: (props: {}) => unknown;
+  iconLeft?: (props: {}) => unknown;
+  iconRight?: (props: {}) => unknown;
+}>();
 </script>
